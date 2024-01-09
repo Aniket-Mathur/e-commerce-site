@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+
+{% block title %} Kitchen and Dinning {% endblock %}
+
+{% block body %} 
+
+    <div class="container-fluid">
+     <div class="row">
+      <div class="col-sm-2"></div>
+        <div class="col-sm-2">
+                <div class="list-group">
+  <a class="list-group-item  list-group-item-success text-dark"><h5>Kitchen and Dinning</h5></a>
+
+  <!-- <a href="#" class="list-group-item list-group-item-action ">Crockery & Cutlery</a> -->
+  <!-- <a href="#" class="list-group-item list-group-item-action ">Storage & Accessories</a> -->
+  <a href="{% url 'utensiles' %}" class="list-group-item list-group-item-action ">Steel Utensiles</a>
+  <!-- <a href="#" class="list-group-item list-group-item-action">Kitchen Accessories</a> -->
+  
+</div>
+              </div>
+        <div claass="col-sm-8">
+             {% for utensil  in utensils %}
+            <img src='/media/{{utensil.image}}' style="width:200px";><br>
+           {{utensil.utensil_name}}<br>
+            {{utensil.utensil_desc}}<br>
+            price-{{utensil.price}}/-
+            <button type="submit" class="btn btn-light">Add to cart</button><br>
+          
+
+            {%  endfor %}
+          
+        </div>
+          
+     </div>
+    </div> 
+
+{% endblock %}

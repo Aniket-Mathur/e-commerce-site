@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+
+{% block title %} Beverages & Snacks {% endblock %}
+
+{% block body %} 
+
+<div class="container-fluid">
+     <div class="row">
+      <div class="col-sm-2"></div>
+        <div class="col-sm-2">
+                <div class="list-group">
+  <a class="list-group-item  list-group-item-success text-dark"><h5>Beverages & Snacks</h5></a>
+
+  
+  <a href="{% url 'biscuits' %}" class="list-group-item list-group-item-action ">Biscuits & Cookies</a>
+  <!-- <a href="#" class="list-group-item list-group-item-action ">Namkeen & Snacks</a> -->
+  <!-- <a href="#" class="list-group-item list-group-item-action ">Sweets</a> -->
+  <a href="{% url 'drinks' %}" class="list-group-item list-group-item-action">Juice & Drinks</a>
+  <!-- <a href="#" class="list-group-item list-group-item-action ">Tea & Coffee</a> -->
+  <!-- <a href="#" class="list-group-item list-group-item-action ">Health & Energy Drinks</a> -->
+  <!-- <a href="#" class="list-group-item list-group-item-action ">Water & Soda</a>  -->
+</div>
+              </div>
+        <div claass="col-sm-8">
+             {% for biscuit  in biscuits %}
+            <img src='/media/{{biscuit.image}}' style="width:200px";><br>
+           {{biscuit.biscuit_name}}<br>
+            {{biscuit.biscuit_desc}}<br>
+            price-{{biscuit.price}}/-
+            <button type="submit" class="btn btn-light">Add to cart</button><br>
+          
+
+            {%  endfor %}
+          
+        </div>
+          
+     </div>
+    </div> 
+
+{% endblock %}

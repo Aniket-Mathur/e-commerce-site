@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+
+{% block title %} Noodles,Sauces & instant food {% endblock %}
+
+{% block body %} 
+
+<div class="container-fluid">
+     <div class="row">
+      <div class="col-sm-2"></div>
+        <div class="col-sm-2">
+                <div class="list-group">
+  <a class="list-group-item  list-group-item-success text-dark"><h5>Noodles,Sauces & instant food</h5></a>
+
+  
+  <a href="{% url 'noodles' %}" class="list-group-item list-group-item-action ">Noodles</a>
+  <!-- <a href="#" class="list-group-item list-group-item-action ">Sauces & Ketchup</a>
+  <a href="#" class="list-group-item list-group-item-action ">Pasta & Soups</a>
+  <a href="#" class="list-group-item list-group-item-action">Ready Made Meals & Mixes</a>
+  <a href="#" class="list-group-item list-group-item-action ">Pickles & Chutneys</a>
+  <a href="#" class="list-group-item list-group-item-action ">Baking & Desert items</a>
+  <a href="#" class="list-group-item list-group-item-action ">Canned & Frozen Food</a>
+  <a href="#" class="list-group-item list-group-item-action ">Honey & Chyawanprash</a> -->
+</div>
+              </div>
+        <div claass="col-sm-8">
+          
+          {% for noodle  in noodles %}
+            <img src='/media/{{noodle.image}}' style="width:200px";><br>
+           {{noodle.noodle_name}}<br>
+            {{noodle.noodle_desc}}<br>
+            price-{{noodle.price}}/-
+            <button type="submit" class="btn btn-light">Add to cart</button><br>
+          
+
+            {%  endfor %}
+        </div>
+          
+     </div>
+    </div> 
+
+{% endblock %}

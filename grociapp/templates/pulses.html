@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+
+{% block title %} Grocery & Staples {% endblock %}
+
+{% block body %} 
+
+ <div class="container-fluid">
+     <div class="row my-4">
+      <div class="col-sm-2"></div>
+        <div class="col-sm-2">
+                <div class="list-group">
+  <a class="list-group-item  list-group-item-success text-dark"><h5>Grocery & Staples</h5></a>
+
+  
+  <a href="{% url 'pulses' %}" class="list-group-item list-group-item-action ">Pulses</a>
+  <!-- <a href="atta.html" class="list-group-item list-group-item-action ">Atta & Other Flours</a> -->
+  <!-- <a href="rice.html" class="list-group-item list-group-item-action ">Rice & Other Grains</a> -->
+  <!-- <a href="dryfruits.html" class="list-group-item list-group-item-action">Dry Fruits & Nuts</a> -->
+  <a href="{% url 'spices' %}" class="list-group-item list-group-item-action ">Spices</a>
+  <!-- <a href="ghee.html" class="list-group-item list-group-item-action ">Ghee & Vanaspati</a> -->
+  <!-- <a href="oil.html" class="list-group-item list-group-item-action ">Edible Oils</a> -->
+</div>
+              </div>
+        <div claass="col-sm-8">
+
+            {% for pulse  in pulses %}
+            <img src='/media/{{pulse.image}}' style="width:200px";><br>
+           {{pulse.pulse_name}}<br>
+            {{pulse.pulse_desc}}<br>
+            price-{{pulse.price}}/-
+            <button type="submit" class="btn btn-light">Add to cart</button><br>
+          
+
+            {%  endfor %}
+          
+        </div>
+          
+     </div>
+    </div> 
+
+{% endblock %}

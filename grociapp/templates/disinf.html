@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+
+{% block title %} Household items {% endblock %}
+
+{% block body %} 
+
+<div class="container-fluid">
+     <div class="row">
+      <div class="col-sm-2"></div>
+        <div class="col-sm-2">
+                <div class="list-group">
+  <a class="list-group-item  list-group-item-success text-dark"><h5>Household items</h5></a>
+
+  <a href="{% url 'disinf' %}" class="list-group-item list-group-item-action ">Disinfectants</a>
+  <!-- <a href="#" class="list-group-item list-group-item-action ">Laundry Detergents</a>
+  <a href="#" class="list-group-item list-group-item-action ">Cleaners</a>
+  <a href="#" class="list-group-item list-group-item-action">Tissues & Disposables</a>
+  <a href="#" class="list-group-item list-group-item-action ">Pooja Needs</a>
+  <a href="#" class="list-group-item list-group-item-action ">Bins & Bathroom Ware</a>
+   -->
+</div>
+              </div>
+        <div claass="col-sm-8">
+
+            {% for disinfecent  in disinfecents %}
+            <img src='/media/{{disinfecent.image}}' style="width:200px";><br>
+           {{disinfecent.disinfecent_name}}<br>
+            {{disinfecent.disinfecent_desc}}<br>
+            price-{{disinfecent.price}}/-
+            <button type="submit" class="btn btn-light">Add to cart</button><br>
+          
+
+            {%  endfor %}
+          
+        </div>
+          
+     </div>
+    </div> 
+
+{% endblock %}

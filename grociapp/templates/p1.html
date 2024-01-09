@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+
+{% block title %} Vegetables {% endblock %}
+
+{% block body %}
+
+<div class="container-fluid">
+    <div class="row">
+      <div class="col-sm-2"></div>
+        <div class="col-sm-2">
+                <div class="list-group">
+                  <a class="list-group-item list-group-item-success text-dark "><h5>Vegetables & Fruits</h5></a>
+                  <a href="{% url 'vegetables' %}" class="list-group-item list-group-item-action "> Fresh Vegetables</a>
+                  <a href="{% url 'fruits' %}" class="list-group-item list-group-item-action ">Fresh Fruits</a>
+                </div>
+            </div>
+        <div claass="col-sm-8">
+          
+            {% for item  in items %}
+            <img src='/media/{{item.image}}' style="width:200px";><br>
+           {{item.item_name}}<br>
+            {{item.item_desc}}<br>
+            price-{{item.price}}/kg
+            <button type="submit" class="btn btn-light">Add to cart</button><br>
+          
+
+            {%  endfor %}
+                
+              </div>
+              
+            </div>
+            
+          </div>
+          
+        </div>    
+    </div>
+</div> 
+
+ {% endblock %}
+
